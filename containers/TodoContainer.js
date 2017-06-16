@@ -7,7 +7,6 @@ import { Todo as TodoComponent } from "../components/TodoComponent";
 const mapStateToProps = state => ({ todos: state });
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: todo => dispatch(addTodo(todo)),
   toggleTodo: id => dispatch(toggleTodo(id)),
   setVisibility: filter => dispatch(setVisibility(filter))
 });

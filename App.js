@@ -4,12 +4,14 @@ import { Provider } from "react-redux";
 import { connect } from "react-redux";
 import store from "./store";
 import TodoContainer from "./containers/TodoContainer";
+import AddTodoContainer from "./containers/AddTodoContainer";
 
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
         <View style={styles.container}>
+          <AddTodoContainer />
           <TodoContainer />
         </View>
       </Provider>
