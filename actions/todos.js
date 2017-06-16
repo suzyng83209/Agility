@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from "./types.js";
+import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from "./types";
 
 let todoNum = 0;
 
