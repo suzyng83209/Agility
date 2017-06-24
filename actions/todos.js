@@ -5,7 +5,7 @@ let todoNum = 0;
 export const addTodo = todo => ({
   type: ADD_TODO,
   num: todoNum++,
-  todo
+  text: todo
 });
 
 export const toggleTodo = id => ({
