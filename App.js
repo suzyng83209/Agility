@@ -9,7 +9,12 @@ import AddTodoContainer from "./containers/AddTodoContainer";
 export default class App extends React.Component {
   render() {
     return (
-      <View><Text>Hello World</Text></View>
+      <Provider store={store}>
+        <View style={styles.container}>
+          <AddTodoContainer />
+          <TodoContainer />
+        </View>
+      </Provider>
     );
   }
 }
