@@ -9,7 +9,7 @@ export default class TodoList extends React.Component {
       <View style={styles.container}>
         <FlatList
           data={todos}
-          renderItem={({ todo }) => <Todo onPress={toggleTodo(todo.id)} />}
+          renderItem={({ todo }) => <Todo onPress={toggleTodo(todo.id)} {...todo} />}
         />
       </View>
     );
