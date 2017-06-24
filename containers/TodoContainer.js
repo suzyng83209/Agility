@@ -2,7 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { addTodo, toggleTodo, setVisibility } from "../actions";
-import { Todo as TodoComponent } from "../components/TodoComponent";
+import { Todo as TodoComponent } from "../components/Todo";
 
 const mapStateToProps = state => ({ todos: state });
 
