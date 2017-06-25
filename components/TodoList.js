@@ -3,13 +3,22 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
+  state = { todos: [] };
+
+  componentDidMount = () => this.setState(() => ({ todos: this.props.todos }));
+
   render() {
-    const { todos, addTodo, toggleTodo, setVisibility } = this.props;
+    const { todos } = this.state;
+    const { addTodo, toggleTodo, setVisibility } = this.props;
     return (
       <View style={styles.container}>
+        <Text>hello world</Text>
         <FlatList
           data={todos}
-          renderItem={({ todo }) => <Todo onPress={toggleTodo(todo.id)} {...todo} />}
+          extraData={todos}
+          renderItem={({ todo }) => (
+            <Todo onPress={toggleTodo(todo.id)} {...todo} />
+          )}
         />
       </View>
     );
