@@ -10,8 +10,6 @@ export default class TodoList extends React.Component {
     ));
 
   render() {
-    const { todos } = this.state;
-    const { addTodo, toggleTodo, setVisibility } = this.props;
     return (
       <View style={styles.container}>
         <Text>hello world</Text>
