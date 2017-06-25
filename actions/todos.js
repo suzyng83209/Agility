@@ -4,7 +4,7 @@ let todoNum = 0;
 
 export const addTodo = todo => ({
   type: ADD_TODO,
-  num: todoNum++,
+  id: todoNum++,
   text: todo
 });
 
