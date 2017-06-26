@@ -14,7 +14,7 @@ export default class AddTodo extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <TextInput
           style={{ height: 40 }}
           onChangeText={todo => this.setState({ todo })}
@@ -25,3 +25,10 @@ export default class AddTodo extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22
+  }
+});

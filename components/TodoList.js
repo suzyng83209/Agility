@@ -4,7 +4,6 @@ import { List, ListItem } from "react-native-elements";
 import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
-  
   renderTodos = () =>
     this.props.todos.map(todo => (
       <Todo {...todo} onPress={this.props.toggleTodo(todo.id)} />
@@ -12,7 +11,7 @@ export default class TodoList extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <List>
           <FlatList
             data={this.props.todos.todos}
@@ -32,7 +31,7 @@ export default class TodoList extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 3,
     paddingTop: 22
   }
 });
