@@ -12,17 +12,20 @@ export default class TodoList extends React.Component {
 
   render() {
     return (
-      <List>
-        <FlatList
-          data={this.props.todos.todos}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => (
-            <Text>
-              {item.text}
-            </Text>
-          )}
-        />
-      </List>
+      <View>
+        <List>
+          <FlatList
+            data={this.props.todos.todos}
+            keyExtractor={item => item.id}
+            renderItem={({ item }) => (
+              <Todo
+                {...item}
+                onPress={this.props.toggleTodo(item.id)}
+              />
+            )}
+          />
+        </List>
+      </View>
     );
   }
 }
