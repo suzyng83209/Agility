@@ -20,7 +20,7 @@ export default class TodoList extends React.Component {
             renderItem={({ item }) => (
               <Todo
                 {...item}
-                onPress={this.props.toggleTodo(item.id)}
+                onPress={this.props.toggleTodo.bind(null, item.id)}
               />
             )}
           />

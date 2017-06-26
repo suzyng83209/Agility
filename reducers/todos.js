@@ -1,6 +1,6 @@
 import { ADD_TODO, TOGGLE_TODO } from "../actions/types";
 
-export default (todos = (state = [{id: 500, text: "hello World", completed: "false" }], action) => {
+export default (todos = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -13,9 +13,10 @@ export default (todos = (state = [{id: 500, text: "hello World", completed: "fal
       ];
 
     case TOGGLE_TODO:
-      return state.map(todo => todo.id === action.id)
+      return state.map(todo => todo.id === action.id
         ? { ...todo, completed: !todo.completed }
-        : todo;
+        : todo
+      )
 
     default:
       return state;
