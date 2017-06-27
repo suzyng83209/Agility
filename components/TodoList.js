@@ -5,24 +5,22 @@ import Todo from "./Todo";
 import Button from "./Button";
 
 export default class TodoList extends React.Component {
-  renderTodos = () =>
-    this.props.todos.map(todo => (
-      <Todo {...todo} onPress={this.props.toggleTodo(todo.id)} />
-    ));
+  renderTodos = () => {
+    const { todos, toggleTodo } = this.props;
+    todos.map(todo => <Todo {...todo} onPress={toggleTodo(todo.id)} />);
+  };
 
   render() {
+    const { todos, toggleTodo } = this.props;
     return (
       <View style={styles.container}>
         <List>
           <FlatList
-            data={this.props.todos.todos}
+            data={todos}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <View style={styles.listItem}>
-                <Todo
-                  {...item}
-                  onPress={this.props.toggleTodo.bind(null, item.id)}
-                />
+                <Todo {...item} onPress={toggleTodo.bind(null, item.id)} />
 
               </View>
             )}

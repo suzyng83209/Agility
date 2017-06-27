@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { addTodo, toggleTodo, setVisibility } from "../actions";
 import TodoList from "../components/TodoList";
 
-const mapStateToProps = state => ({ todos: state });
+const mapStateToProps = state => ({ todos: state.todos });
 
 const mapDispatchToProps = dispatch => ({
   toggleTodo: id => dispatch(toggleTodo(id)),
