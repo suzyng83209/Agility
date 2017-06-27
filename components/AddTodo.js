@@ -9,6 +9,7 @@ export default class AddTodo extends React.Component {
     const { todo } = this.state;
     if (todo.length) {
       this.props.addTodo(todo);
+      this.setState(() => ({ todo: "" }));
     }
   };
 
@@ -28,7 +29,7 @@ export default class AddTodo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'space-around',
