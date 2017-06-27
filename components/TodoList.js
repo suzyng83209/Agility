@@ -2,7 +2,6 @@ import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { List, ListItem } from "react-native-elements";
 import Todo from "./Todo";
-import Button from "./Button";
 
 export default class TodoList extends React.Component {
   renderTodos = () => {
