@@ -1,6 +1,6 @@
 import { ADD_TODO, TOGGLE_TODO, SET_VISIBILITY_FILTER } from "./types";
 
-let todoNum = 0;
+let todoNum = 1;
 
 export const addTodo = todo => ({
   type: ADD_TODO,
