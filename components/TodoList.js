@@ -14,7 +14,7 @@ export default class TodoList extends React.Component {
       <View style={styles.container}>
         <List>
           <FlatList
-            data={this.props.todos.todos}
+            data={this.props.todos}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <Todo
