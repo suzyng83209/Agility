@@ -28,6 +28,7 @@ export default class AddTodo extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    width: 200,
     flex: 1,
     paddingTop: 22
   }
