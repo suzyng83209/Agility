@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { Provider } from "react-redux";
 import { connect } from "react-redux";
 import store from "./store";
+import Footer from "./components/Footer";
 import TodoContainer from "./containers/TodoContainer";
 import AddTodoContainer from "./containers/AddTodoContainer";
 
@@ -13,6 +14,7 @@ export default class App extends React.Component {
         <View style={styles.container}>
           <AddTodoContainer />
           <TodoContainer />
+          <Footer />
         </View>
       </Provider>
     );
