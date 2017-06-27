@@ -2,6 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { List, ListItem } from "react-native-elements";
 import Todo from "./Todo";
+import Button from "./Button";
 
 export default class TodoList extends React.Component {
   renderTodos = () =>
@@ -17,10 +18,13 @@ export default class TodoList extends React.Component {
             data={this.props.todos.todos}
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
-              <Todo
-                {...item}
-                onPress={this.props.toggleTodo.bind(null, item.id)}
-              />
+              <View style={styles.listItem}>
+                <Todo
+                  {...item}
+                  onPress={this.props.toggleTodo.bind(null, item.id)}
+                />
+
+              </View>
             )}
           />
         </List>
@@ -33,5 +37,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 3,
     paddingTop: 22
+  },
+  listItem: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    padding: 16
   }
 });

@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     padding: 22
   }
 });
