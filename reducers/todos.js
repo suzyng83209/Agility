@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from "../actions/types";
+import { ADD_TODO, TOGGLE_TODO_COMPLETED } from "../actions/types";
 
 const INITIAL_STATE = [{ id: 0, text: "Add a todo", completed: false }];
 
@@ -14,7 +14,7 @@ export default (todos = (state = INITIAL_STATE, action) => {
         }
       ];
 
-    case TOGGLE_TODO:
+    case TOGGLE_TODO_COMPLETED:
       return state.map(
         todo =>
           (todo.id === action.id

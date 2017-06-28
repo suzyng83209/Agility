@@ -5,12 +5,12 @@ import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
   renderTodos = () => {
-    const { todos, toggleTodo } = this.props;
-    todos.map(todo => <Todo {...todo} onPress={toggleTodo(todo.id)} />);
+    const { todos, toggleTodoCompleted } = this.props;
+    todos.map(todo => <Todo {...todo} onPress={toggleTodoCompleted(todo.id)} />);
   };
 
   render() {
-    const { todos, toggleTodo } = this.props;
+    const { todos, toggleTodoCompleted } = this.props;
     return (
       <View style={styles.container}>
         <List>
@@ -19,7 +19,7 @@ export default class TodoList extends React.Component {
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <View style={styles.listItem}>
-                <Todo {...item} onPress={toggleTodo.bind(null, item.id)} />
+                <Todo {...item} onPress={toggleTodoCompleted.bind(null, item.id)} />
 
               </View>
             )}

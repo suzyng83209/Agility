@@ -1,7 +1,7 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { addTodo, toggleTodo, setVisibility } from "../actions";
+import { addTodo, toggleTodoCompleted, setVisibility } from "../actions";
 import TodoList from "../components/TodoList";
 
 const getVisibleTodos = (todos, filter) => {
@@ -18,7 +18,7 @@ const getVisibleTodos = (todos, filter) => {
 const mapStateToProps = state => ({ todos: getVisibleTodos(state.todos, state.visibilityFilter)});
 
 const mapDispatchToProps = dispatch => ({
-  toggleTodo: id => dispatch(toggleTodo(id)),
+  toggleTodoCompleted: id => dispatch(toggleTodoCompleted(id)),
   setVisibility: filter => dispatch(setVisibility(filter))
 });
 
