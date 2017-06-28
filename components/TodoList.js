@@ -1,16 +1,11 @@
 import React from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View, Button } from "react-native";
 import { List, ListItem } from "react-native-elements";
 import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
-  renderTodos = () => {
-    const { todos, toggleTodoCompleted } = this.props;
-    todos.map(todo => <Todo {...todo} onPress={toggleTodoCompleted(todo.id)} />);
-  };
-
   render() {
-    const { todos, toggleTodoCompleted } = this.props;
+    const { todos, toggleTodoCompleted, toggleTodoInSprint } = this.props;
     return (
       <View style={styles.container}>
         <List>
@@ -19,8 +14,8 @@ export default class TodoList extends React.Component {
             keyExtractor={item => item.id}
             renderItem={({ item }) => (
               <View style={styles.listItem}>
+                <Button onPress={toggleTodoInSprint.bind(null,item.id)} title="Sprint" color="#841584" />
                 <Todo {...item} onPress={toggleTodoCompleted.bind(null, item.id)} />
-
               </View>
             )}
           />
@@ -33,12 +28,14 @@ export default class TodoList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 3,
-    paddingTop: 22
+    padding: 22,
+    alignSelf: "stretch"
   },
   listItem: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 16
+    paddingTop: 32,
+    alignSelf: "stretch",
+    alignItems: "center"
   }
 });

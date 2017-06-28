@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO_COMPLETED } from "../actions/types";
+import { ADD_TODO, TOGGLE_TODO_COMPLETED, TOGGLE_TODO_INSPRINT } from "../actions/types";
 
 const INITIAL_STATE = [{ id: 0, text: "Add a todo", completed: false }];
 
@@ -10,7 +10,8 @@ export default (todos = (state = INITIAL_STATE, action) => {
         {
           id: action.id,
           text: action.text,
-          completed: false
+          completed: false,
+          inSprint: false
         }
       ];
 
@@ -22,6 +23,13 @@ export default (todos = (state = INITIAL_STATE, action) => {
             : todo)
       );
 
+    case TOGGLE_TODO_INSPRINT:
+      return state.map(
+        todo =>
+          (todo.id === action.id
+            ? { ...todo, inSprint: !todo.inSprint }
+            : todo)
+      );
     default:
       return state;
   }
