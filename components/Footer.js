@@ -17,6 +17,10 @@ const Footer = () => (
     <FilterLink filter="SHOW_COMPLETED">
       Completed
     </FilterLink>
+    {', '}
+    <FilterLink filter="SHOW_INSPRINT">
+      In Sprint
+    </FilterLink>
   </Text>
 )
 
