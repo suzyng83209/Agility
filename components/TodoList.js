@@ -28,12 +28,14 @@ export default class TodoList extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 3,
-    paddingTop: 22
+    padding: 22,
+    alignSelf: "stretch"
   },
   listItem: {
     flex: 1,
     flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 16
+    paddingTop: 32,
+    alignSelf: "stretch",
+    alignItems: "center"
   }
 });
