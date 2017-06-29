@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList, StyleSheet, Text, View, Button } from "react-native";
-import { List, ListItem } from "react-native-elements";
+import { ListItem } from "react-native-elements";
 import Todo from "./Todo";
 
 export default class TodoList extends React.Component {
@@ -8,18 +8,16 @@ export default class TodoList extends React.Component {
     const { todos, toggleTodoCompleted, toggleTodoInSprint } = this.props;
     return (
       <View style={styles.container}>
-        <List>
-          <FlatList
-            data={todos}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.listItem}>
-                <Button onPress={toggleTodoInSprint.bind(null,item.id)} title="Sprint" color="#841584" />
-                <Todo {...item} onPress={toggleTodoCompleted.bind(null, item.id)} />
-              </View>
-            )}
-          />
-        </List>
+        <FlatList
+          data={todos}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => (
+            <View style={styles.listItem}>
+              <Button onPress={toggleTodoInSprint.bind(null,item.id)} title="Sprint" color="#841584" />
+              <Todo {...item} onPress={toggleTodoCompleted.bind(null, item.id)} />
+            </View>
+          )}
+        />
       </View>
     );
   }
