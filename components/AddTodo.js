@@ -16,12 +16,14 @@ export default class AddTodo extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TextInput
-          style={{ height: 40 }}
-          onChangeText={todo => this.setState({ todo })}
-          value={this.state.todo}
-        />
-        <Button onPress={this.onTodoAdd} title="Add" color="#841584" />
+        <View style={styles.addTodo}>
+          <TextInput
+            style={{ height: 40 }}
+            onChangeText={todo => this.setState({ todo })}
+            value={this.state.todo}
+          />
+          <Button onPress={this.onTodoAdd} title="Add" color="#841584" />
+        </View>
       </View>
     );
   }
@@ -34,5 +36,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-around',
     padding: 22
+  },
+  addTodo: {
+    flex: -1,
+    width: 250,
+    alignSelf: "center"
   }
 });
