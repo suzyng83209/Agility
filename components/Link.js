@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from 'react-native';
+import { Text, Button } from 'react-native';
 
 const Link = ({ active, children, onClick }) => {
-  if (active) {
-    return <Text>{children}</Text >
-  }
-
   return (
-    <Text
-        onPress={onClick}
-    >
-      {children}
-    </Text>
+    <Button
+      disabled={active}
+      onPress={onClick}
+      title={children}
+      color="#841584"
+    />
   )
 }
 

@@ -1,27 +1,23 @@
 import React from 'react';
 import FilterLink from '../containers/FilterLink'
-import { Text } from 'react-native'
+import { View, Text,StyleSheet } from 'react-native'
+import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED, SHOW_INSPRINT } from '../actions/types'
 
 const Footer = () => (
-  <Text>
-    Show:
-    {' '}
-    <FilterLink filter="SHOW_ALL">
+  <View style={styles.container}>
+    <FilterLink filter={SHOW_ALL}>
       All
     </FilterLink>
-    {', '}
-    <FilterLink filter="SHOW_ACTIVE">
+    <FilterLink filter={SHOW_ACTIVE}>
       Active
     </FilterLink>
-    {', '}
-    <FilterLink filter="SHOW_COMPLETED">
+    <FilterLink filter={SHOW_COMPLETED}>
       Completed
     </FilterLink>
-    {', '}
-    <FilterLink filter="SHOW_INSPRINT">
+    <FilterLink filter={SHOW_INSPRINT}>
       In Sprint
     </FilterLink>
-  </Text>
+  </View>
 )
 
 var def = {
@@ -31,5 +27,15 @@ var def = {
         return null;
     }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    padding: 16,
+    alignItems: "flex-end",
+    justifyContent: "space-between"
+  }
+})
 
 export default Footer
