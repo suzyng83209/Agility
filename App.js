@@ -14,7 +14,6 @@ export default class App extends React.Component {
       <Provider store={store}>
         <View style={styles.container}>
           <AddTodoContainer />
-          <DatePicker />
           <TodoContainer />
           <Footer />
         </View>
