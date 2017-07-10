@@ -1,15 +1,17 @@
 import { ADD_TODO, TOGGLE_TODO_COMPLETED, TOGGLE_TODO_INSPRINT } from "../actions/types";
 
-const INITIAL_STATE = [{ id: 0, text: "Add a todo", completed: false }];
+const INITIAL_STATE = [{ id: 0, text: "Add a todo", completed: false, dueDate: new Date() }];
 
 export default (todos = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_TODO:
+      const { id, text, dueDate } = action
       return [
         ...state,
         {
-          id: action.id,
-          text: action.text,
+          id: id,
+          text: text,
+          dueDate: dueDate,
           completed: false,
           inSprint: false
         }

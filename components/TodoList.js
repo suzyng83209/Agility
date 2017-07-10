@@ -15,6 +15,9 @@ export default class TodoList extends React.Component {
             <View style={styles.listItem}>
               <Button onPress={toggleTodoInSprint.bind(null,item.id)} title="Sprint" color="#841584" />
               <Todo {...item} onPress={toggleTodoCompleted.bind(null, item.id)} />
+              <Text>
+                {item.dueDate.toString()}
+              </Text>
             </View>
           )}
         />

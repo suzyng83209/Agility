@@ -1,34 +1,34 @@
 import React from "react";
 import { connect } from "react-redux";
-import { View, Text, Button, TextInput, StyleSheet, DatePickerAndroid } from "react-native";
+import DatePicker from "./DatePicker";
+import {
+  View,
+  Text,
+  Button,
+  TextInput,
+  StyleSheet,
+  DatePickerAndroid
+} from "react-native";
 
 export default class AddTodo extends React.Component {
-  state = { todoName: "Add Todo",
-            date: new Date() };
+  state = {
+    todoName: "Add Todo",
+    date: new Date()
+  };
 
   onTodoAdd = () => {
-    const { todoName } = this.state;
+    const { todoName, date } = this.state;
     if (todoName.length) {
-      this.props.addTodo(todoName);
+      this.props.addTodo({
+        text: todoName,
+        dueDate: date
+      });
       this.setState(() => ({ todoName: "" }));
     }
   };
 
-  getDate = async function() {
-    const { date } = this.state;
-    try {
-      const { action, year, month, day } = await DatePickerAndroid.open({
-        date: date
-      });
-      if (action !== DatePickerAndroid.dismissedAction) {
-        this.setState({ date: new Date(year, month, day) });
-      }
-    } catch ({code, message}) {
-      console.warn('Cannot open date picker', message);
-    }
-  }
-
   render() {
+    const { todoName, date } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.addTodo}>
@@ -38,9 +38,13 @@ export default class AddTodo extends React.Component {
             value={this.state.todoName}
           />
           <Button onPress={this.onTodoAdd} title="Add" color="#841584" />
-          <Button onPress={this.getDate.bind(this)} title="Set Due Date" color="#841584" />
+          <DatePicker
+            title="Set Due Date"
+            defaultDate={date}
+            onChangeDate={date => this.setState({date})}
+          />
           <Text>
-            {this.state.date.toString()}
+            {date.toString()}
           </Text>
         </View>
       </View>
@@ -52,8 +56,8 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "stretch",
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
+    flexDirection: "column",
+    justifyContent: "space-around",
     padding: 22
   },
   addTodo: {

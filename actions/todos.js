@@ -5,7 +5,8 @@ let todoNum = 1;
 export const addTodo = todo => ({
   type: ADD_TODO,
   id: todoNum++,
-  text: todo
+  text: todo.text,
+  dueDate: todo.dueDate
 });
 
 export const toggleTodoCompleted = id => ({
