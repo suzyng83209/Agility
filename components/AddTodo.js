@@ -9,6 +9,7 @@ import {
   StyleSheet,
   DatePickerAndroid
 } from "react-native";
+import Moment from "moment"
 
 export default class AddTodo extends React.Component {
   state = {
@@ -44,7 +45,7 @@ export default class AddTodo extends React.Component {
             onChangeDate={date => this.setState({date})}
           />
           <Text>
-            {date.toString()}
+            {Moment(date).format("MMM D h a")}
           </Text>
         </View>
       </View>
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   },
   addTodo: {
     flex: 1,
-    width: 250,
+    width: 270,
     alignSelf: "center"
   }
 });

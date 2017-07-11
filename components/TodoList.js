@@ -2,6 +2,7 @@ import React from "react";
 import { FlatList, StyleSheet, Text, View, Button } from "react-native";
 import { ListItem } from "react-native-elements";
 import Todo from "./Todo";
+import Moment from "moment";
 
 export default class TodoList extends React.Component {
   render() {
@@ -16,7 +17,7 @@ export default class TodoList extends React.Component {
               <Button onPress={toggleTodoInSprint.bind(null,item.id)} title="Sprint" color="#841584" />
               <Todo {...item} onPress={toggleTodoCompleted.bind(null, item.id)} />
               <Text>
-                {item.dueDate.toString()}
+                {Moment(item.dueDate).format("MMM D h a")}
               </Text>
             </View>
           )}
